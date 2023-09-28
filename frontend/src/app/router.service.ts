@@ -10,7 +10,7 @@ export class RouterService {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentRoute = event.urlAfterRedirects;
-        this.showNav = !currentRoute.includes('userLogin') && !currentRoute.includes('userRegister');
+        this.showNav = !currentRoute.includes('userLogin') && !currentRoute.includes('userRegister') && !currentRoute.includes('');
       }
     });
   }
