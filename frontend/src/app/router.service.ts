@@ -10,7 +10,15 @@ export class RouterService {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentRoute = event.urlAfterRedirects;
-        this.showNav = !currentRoute.includes('userLogin') && !currentRoute.includes('userRegister') && !currentRoute.includes('');
+        if(currentRoute==='/userLogin' || currentRoute==='/userRegister' || currentRoute === '/') {
+          this.showNav = false;
+        }else{
+          this.showNav = true;
+        }
+        // this.showNav = !(currentRoute.includes('userLogin') || currentRoute.includes('userRegister') || currentRoute === '');
+        console.log(this.showNav)
+        console.log(currentRoute);
+        
       }
     });
   }
